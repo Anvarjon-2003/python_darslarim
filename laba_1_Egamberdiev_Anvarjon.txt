@@ -1,0 +1,57 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May  6 01:43:05 2024
+
+@author: Anvarjon
+"""
+3.1
+a = int(input())
+b = int(input())
+d = int(input())
+print(a+b+d)
+3.2
+
+b = float(input())
+h = float(input())
+s = 0.5 * b * h
+print(s)
+3.3
+# Ввод количества детей и апельсинов
+x = int(input("Введите количество детей: "))
+y = int(input("Введите количество апельсинов: "))
+
+# Вычисление количества апельсинов, которое получит каждый ребенок
+apples_per_child = y // x
+
+# Вычисление количества апельсинов, которые остались в коробке
+apples_remaining = y % x
+
+# Вывод результатов
+print("Каждый ребенок получит:", apples_per_child, "апельсинов")
+print("В коробке останется:", apples_remaining, "апельсинов")
+
+3.4
+n = int(input('Введите количество минут: '))
+n = n % (24 * 60)  # ограничиваем количество минут до 24 часов
+print('Количество часов:', n // 60, 'Количество минут:', n % 60)
+3.5
+name = { 'world! ','Mr. Potter!',' Lord Voldemort!'}
+for n in name:
+    print("Hello", n)
+3.6
+number = int(input())
+next_number = number + 1
+previous_number = number - 1
+print('The next number for the number',number,'is', next_number)
+print('The previous number for the number', number, 'is', previous_number)
+
+3.7
+# Ввод количества человек в группах
+group1 = int(input("Введите количество человек в первой группе: "))
+group2 = int(input("Введите количество человек во второй группе: "))
+group3 = int(input("Введите количество человек в третьей группе: "))
+
+# Расчет общего количества компьютеров
+total_students = group1 + group2 + group3
+total_computers = -(-total_students // 2)  # Округление вверх для учета целого количества компьютеров
+print("Всего нужно закупить компьютеров:", total_computers)
