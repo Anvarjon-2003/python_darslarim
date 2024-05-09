@@ -1,0 +1,250 @@
+1
+# Вводим курс доллара к рублю
+course = float(input("Введите курс доллара к рублю: "))
+
+# Создаем таблицу с шагом 1 доллар от 1 до 20
+for dollar in range(1, 21):
+    # Переводим доллары в рубли и выводим результат
+    rubles = dollar  *  course
+    print(f"{dollar} долларов США это {rubles:.2f} рублей")
+2
+# Вводим число n
+n = int(input("Введите число n (1 ≤ n ≤ 9): "))
+
+# Проверяем, что введенное число находится в допустимом диапазоне
+if not (1 <= n <= 9):
+    print("Число n должно быть в диапазоне от 1 до 9.")
+else:
+    # Выводим таблицу умножения на число n
+    for i in range(1, 11):  # Перебираем числа от 1 до 10
+        product = n  *  i       # Вычисляем произведение
+        print(f"{i}  *  {n} = {product}")  # Выводим результат
+
+3
+a = int(input("Введите значение a: "))
+b = int(input("Введите значение b: "))
+
+if b < a:
+    print("Ошибка: b должно быть больше или равно a.")
+else:
+    total = 0
+    for i in range(a, b+1):
+        total += i**2
+    print(f"Сумма квадратов всех целых чисел от {a} до {b} равна {total}")
+
+4
+# Предположим, что пятизначное число хранится в переменной number
+number = 12345
+
+# Преобразовать число в строку
+number_str = str(number)
+
+#  Перевернуть строку
+reversed_number_str = number_str[::-1]
+
+#  Преобразовать перевернутую строку обратно в число
+reversed_number = int(reversed_number_str)
+
+print(reversed_number)  # Выведет 54321, если исходное число было 12345
+
+5
+def factorial(n):
+    """Вычисляет факториал числа n"""
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+n = int(input("Введите значение n (1 < n <= 10): "))
+
+if n <= 1 or n > 10:
+    print("Ошибка: значение n должно быть в диапазоне от 2 до 10.")
+else:
+    sum_factorials = 0
+    for i in range(1, n+1):
+        sum_factorials += factorial(i)
+    
+    k = int(input("Введите значение k (1 <= k <= n): "))
+    
+    if k < 1 or k > n:
+        print("Ошибка: значение k должно быть в диапазоне от 1 до n.")
+    else:
+        sum_k_factorials = 0
+        for i in range(1, k+1):
+            sum_k_factorials += factorial(i)
+        
+        print(f"Сумма факториалов от 1 до {n} равна: {sum_factorials}")
+        print(f"Сумма факториалов от 1 до {k} равна: {sum_k_factorials}")
+6 
+def count_negative_numbers(sequence):
+    # Сортируем список чисел
+    sorted_sequence = sorted(sequence)
+    
+    # Подсчет количества отрицательных чисел в начале списка
+    negative_count = 0
+    for number in sorted_sequence:
+        if number < 0:
+            negative_count += 1
+        else:
+            break  # Как только встречается первое положительное число, прерываем цикл
+    
+    return negative_count
+
+# Пример использования функции
+sequence = [-1.5, 2.5, -3.5, 4.5, -5.5]  # Пример последовательности
+print(count_negative_numbers(sequence))  # Вывод количества отрицательных чисел в начале последовательности
+7
+# Вводим значение n
+n = int(input("Введите число n (n > 1): "))
+
+# Проверяем, что n больше 1
+if n > 1:
+    # Инициализируем переменные для хранения первых двух членов последовательности Фибоначчи
+    prev, curr = 1, 1
+    
+    # Пока текущий член последовательности меньше n
+    while curr < n:
+        # Следующий член последовательности равен сумме двух предыдущих
+        next = prev + curr
+        
+        # Обновляем предыдущий и текущий члены последовательности
+        prev, curr = curr, next
+    
+    # Выводим первое число в последовательности Фибоначчи, большее n
+    print(curr)
+else:
+    print("Значение n должно быть больше 1.")
+8
+# Функция для определения количества вхождений минимальной цифры в число
+def count_min_digit(number):
+    # Разбиваем число на цифры и находим минимальную цифру
+    min_digit = min(map(int, list(str(number))))
+    
+    # Считаем количество вхождений минимальной цифры в число
+    count = 0
+    while number > 0:
+        if number % 10 == min_digit:
+            count += 1
+        number //= 10
+    
+    return count
+
+# Пример использования функции
+number = 10220
+print(count_min_digit(number))  # Выведет 3, что соответствует условию задачи
+9
+# Вводим значения первого члена прогрессии, шага прогрессии и числа, которое нужно проверить
+f = int(input("Введите первый член арифметической прогрессии f: "))
+s = int(input("Введите шаг арифметической прогрессии s: "))
+n = int(input("Введите число n для проверки: "))
+
+# Вычисляем n-ый член арифметической прогрессии
+an = f + (n - 1)  *  s
+
+# Сравниваем n-ый член прогрессии с заданным числом n
+if an == n:
+    print("Число n является членом арифметической прогрессии.")
+else:
+    print("Число n не является членом арифметической прогрессии.")
+10
+# Вводим натуральное число
+number = input("Введите натуральное число: ")
+
+# Преобразуем введенное число в строку
+number_str = str(number)
+
+# Разделяем строку на отдельные цифры
+digits = number_str.split()
+
+# Преобразуем каждую цифру обратно в число
+digits = [int(digit) for digit in digits]
+
+# Находим максимальное повторение
+max_count = max((digits.count(digit), digit) for digit in set(digits))
+
+# Выводим результат
+print(f"Цифра, которая повторяется максимальное количество раз: {max_count[1]}")
+11
+# Предположим, что у нас есть две переменные, представляющие минимальное и максимальное значения:
+min_value = 1
+max_value = 9
+
+# Теперь мы можем сравнить их и вывести результат:
+if min_value < max_value:
+    print("Минимальная цифра расположена левее максимальной.")
+else:
+    print("Максимальная цифра расположена левее минимальной.")
+12
+def factorial(n):
+    """Вычисляет факториал числа n"""
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+factorial_value = int(input("Введите известный факториал: "))
+
+# Перебираем все возможные значения n от 0 до 20 (максимальное значение для 64-битного целого числа)
+for n in range(21):
+    if factorial(n) == factorial_value:
+        print(f"Число n, факториал которого равен {factorial_value}, равно {n}")
+        break
+else:
+    print(f"Не найдено числа n, факториал которого равен {factorial_value}")
+ 13
+def find_min_notes(n):
+    notes = [1, 2, 4, 8, 16, 32, 64]
+    count = []
+
+    for note in reversed(notes):
+        count.append(n // note)
+        n %= note
+        if n == 0:
+            break
+
+    return count
+
+# Пример использования функции
+n = 100
+result = find_min_notes(n)
+print(result)  # Выведет количество каждой из используемых для выплаты купюр
+ 14
+# Инициализация стоимости быка, коровы и теленка
+bull_price = 10
+cow_price = 5
+calf_price = 0.5
+
+# Общая сумма денег
+total_money = 100
+
+# Количество быков, коров и телят, которое можно купить
+# Инициализация переменных
+bulls = 0
+cows = 0
+calves = 0
+
+# Расчет количества быков
+bulls = total_money // bull_price
+total_money %= bull_price
+
+# Расчет количества коров
+cows = total_money // cow_price
+total_money %= cow_price
+
+# Расчет количества телят
+calves = total_money // calf_price
+
+# Вывод результатов
+print(f"Быков: {bulls}, Коров: {cows}, Телят: {calves}")
+15
+def sum_powers(n):
+    total = 0
+    for i in range(1, n+1):
+        total += i ** i
+    return total
+
+# Пример использования
+n = 5
+result = sum_powers(n)
+print(f"Результат: {result}")
+
