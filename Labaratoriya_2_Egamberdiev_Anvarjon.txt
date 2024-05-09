@@ -1,0 +1,553 @@
+4 
+# Предположим, что a и b - это два различных вещественных числа
+a = 5.6
+b = 3.2
+
+# Определение, какое из чисел больше
+if a > b:
+    print(f"Число a больше числа b. Число a равно {a}, число b равно {b}")
+elif a < b:
+    print(f"Число b больше числа a. Число a равно {a}, число b равно {b}")
+else:
+    print(f"Числа a и b равны. Числа a и b равны {a}")
+
+# Определение, какое из чисел меньше
+if a < b:
+    print(f"Число a меньше числа b. Число a равно {a}, число b равно {b}")
+elif a > b:
+    print(f"Число b меньше числа a. Число a равно {a}, число b равно {b}")
+else:
+    print(f"Числа a и b равны. Числа a и b равны {a}")
+5
+# Предположим, что a и b - это два различных вещественных числа
+a = 5.6
+b = 3.2
+
+# Определение максимального значения
+if a > b:
+    max_value = a
+else:
+    max_value = b
+
+# Определение минимального значения
+if a < b:
+    min_value = a
+else:
+    min_value = b
+
+# Вывод результатов
+print(f"Максимальное значение: {max_value}")
+print(f"Минимальное значение: {min_value}")
+
+6 
+def calculate_age(birth_year, birth_month, today_year, today_month):
+    # Вычисляем разницу в годах
+    age_in_years = today_year - birth_year
+    
+    # Если текущий месяц меньше месяца рождения, возвращаем возраст без изменений
+    if today_month < birth_month:
+        return age_in_years
+    
+    # Если текущий месяц больше или равен месяцу рождения, добавляем 1 к возрасту
+    elif today_month >= birth_month:
+        age_in_years += 1
+    
+    # Вычисляем количество полных месяцев
+    months_difference = today_month - birth_month
+    
+    # Учитываем, что если разница в месяцах отрицательная, то нужно прибавить 12
+    if months_difference < 0:
+        months_difference += 12
+    
+    # Вычисляем количество полных лет, не достигших полного года
+    age_in_months = months_difference / 12
+    
+    # Прибавляем количество полных месяцев к возрасту в годах
+    return age_in_years + age_in_months
+
+# Пример использования функции:
+birth_year = 1990
+birth_month = 10
+today_year = 2023
+today_month = 1
+
+age = calculate_age(birth_year, birth_month, today_year, today_month)
+print(f"Возраст человека: {age} лет")
+
+
+9
+def is_divisible(a, b):
+    # Проверяем, равен ли остаток от деления b на a нулю
+    return b % a == 0
+
+# Пример использования функции
+a = 3
+b = 15
+if is_divisible(a, b):
+    print("Число a является делителем числа b.")
+else:
+    print("Число a не является делителем числа b.")
+10
+def is_even(number):
+    """Проверяет, является ли число четным."""
+    return number % 2 == 0
+
+def ends_with_seven(number):
+    """Проверяет, оканчивается ли число цифрой 7."""
+    return str(number).endswith('7')
+
+# Пример использования функций
+number = 17  # Замените это значение, если хотите проверить другое число
+print(f"Число {number} является четным? {is_even(number)}")
+print(f"Число {number} оканчивается цифрой 7? {ends_with_seven(number)}")
+11
+# Функция для определения большей цифры в двузначном числе
+def bigger_digit(number):
+    # Преобразуем число в строку, чтобы работать с отдельными цифрами
+    num_str = str(number)
+    # Получаем первую и вторую цифру числа как целые числа
+    first_digit = int(num_str[0])
+    second_digit = int(num_str[1])
+    # Возвращаем большее число
+    return max(first_digit, second_digit)
+
+# Функция для определения, одинаковы ли цифры в двузначном числе
+def equal_digits(number):
+    # Преобразуем число в строку, чтобы работать с отдельными цифрами
+    num_str = str(number)
+    # Получаем обе цифры числа как целые числа
+    first_digit = int(num_str[0])
+    second_digit = int(num_str[1])
+    # Возвращаем True, если цифры одинаковы, иначе False
+    return first_digit == second_digit
+
+# Пример использования функций
+number = 11  # Замените это значение, если хотите проверить другое число
+print(f"Большая цифра в числе {number}: {bigger_digit(number)}")
+print(f"Одинаковы ли цифры в числе {number}: {equal_digits(number)}")
+12
+# Функция для проверки, является ли число трехзначным палиндромом
+def is_palindrome(number):
+    # Преобразуем число в строку, чтобы работать с отдельными цифрами
+    num_str = str(number)
+    # Проверяем, одинакова ли последовательность цифр при чтении слева направо и справа налево
+    return num_str == num_str[::-1]
+
+# Пример использования функции
+number = 123  # Замените это значение, если хотите проверить другое число
+print(f"Число {number} является палиндромом: {is_palindrome(number)}")
+13
+# Функция для проверки, являются ли все цифры числа одинаковыми
+def all_digits_same(number):
+    # Преобразуем число в строку, чтобы работать с отдельными цифрами
+    num_str = str(number)
+    # Проверяем, состоит ли строка из одной повторяющейся цифры
+    return len(set(num_str)) == 1
+
+# Функция для проверки, есть ли среди цифр числа одинаковые
+def has_duplicate_digits(number):
+    # Преобразуем число в строку, чтобы работать с отдельными цифрами
+    num_str = str(number)
+    # Используем множество для хранения уникальных цифр
+    unique_digits = set()
+    # Проходим по каждой цифре в строке
+    for digit in num_str:
+        # Если цифра уже встречалась, значит есть дубликат
+        if digit in unique_digits:
+            return True
+        else:
+            unique_digits.add(digit)
+    # Если все цифры уникальны, дубликатов нет
+    return False
+
+# Пример использования функций
+number = 123  # Замените это значение, если хотите проверить другое число
+print(f"Все цифры числа {number} одинаковые? {all_digits_same(number)}")
+print(f"Среди цифр числа {number} есть одинаковые? {has_duplicate_digits(number)}")
+14
+# Функция для проверки, заканчивается ли число четной цифрой
+def ends_with_even_digit(number):
+    # Преобразуем число в строку, чтобы работать с последней цифрой
+    last_digit = str(number)[-1]
+    # Проверяем, является ли последняя цифра четной
+    return int(last_digit) % 2 == 0
+
+# Функция для проверки, заканчивается ли число нечетной цифрой
+def ends_with_odd_digit(number):
+    # Преобразуем число в строку, чтобы работать с последней цифрой
+    last_digit = str(number)[-1]
+    # Проверяем, является ли последняя цифра нечетной
+    return int(last_digit) % 2 != 0
+
+# Пример использования функций
+number = 123  # Замените это значение, если хотите проверить другое число
+print(f"Число {number} заканчивается четной цифрой? {ends_with_even_digit(number)}")
+print(f"Число {number} заканчивается нечетной цифрой? {ends_with_odd_digit(number)}")
+15
+def get_traffic_light_color(t):
+    # Проверяем, находится ли время t в пределах одного часа
+    if t < 0 or t > 60:
+        raise ValueError("Время должно быть в пределах одного часа")
+    
+    # Каждый цикл длится 5 минут (3 минуты зеленый + 2 минуты красный)
+    cycle_length = 5
+    
+    # Начинаем отсчет с начала цикла
+    while t >= cycle_length:
+        t -= cycle_length
+    
+    # Если осталось меньше двух минут, значит горит красный сигнал
+    if t < 2:
+        return "Красный"
+    else:
+        # Если осталось 2 минуты или больше, значит горит зеленый сигнал
+        return "Зеленый"
+
+# Пример использования функции
+t = float(input("Введите время в минутах: "))
+print(get_traffic_light_color(t))
+16
+def find_full_tons(mass_in_kg):
+    # Делим массу на 1000, чтобы получить количество полных тонн
+    full_tons = mass_in_kg // 1000
+    return full_tons
+
+# Пример использования функции
+mass = float(input("Введите массу в килограммах: "))
+print(f"Число полных тонн в массе: {find_full_tons(mass)}")
+17
+# Длина стороны квадрата
+side = 130
+# Меньшая сторона прямоугольника
+rectangle_side = 543
+
+# Рассчитываем количество квадратов
+squares = rectangle_side // side
+
+print(squares)
+18
+def calculate_x(n):
+    # Количество дней в феврале для обычного года
+    days_in_feb = 28
+    
+    # Проверяем, является ли год високосным
+    if n > 0 and (n % 4 == 0 and (n % 100 != 0 or n % 400 == 0)):
+        # Если год високосный, добавляем один день
+        days_in_feb += 1
+    
+    # Считаем количество месяцев
+    months = n // 30
+    
+    # Вычисляем остаток дней после полного количества месяцев
+    remaining_days = n % 30
+    
+    # Если остаток дней меньше 2, значит последний месяц - январь или февраль
+    if remaining_days <= 2:
+        # Если остаток дней равен 1, то последний месяц - январь
+        x = 1
+    else:
+        # Если остаток дней равен 2, то последний месяц - февраль
+        x = 2
+    
+    # Уменьшаем количество месяцев на 2, так как мы учли январь и февраль
+    months -= 2
+    
+    # Возвращаем список месяцев, начиная с марта
+    return [ * 'МартАпрельМайИюньИюльАвгустСентябрьОктябрьНоябрьДекабрь'][months:]
+
+# Пример использования функции
+n = 3  # Пример: с начала года прошло 3 месяца и 2 дня
+result = calculate_x(n)
+print(result)  # ['Апрель', 'Май', 'Июнь']
+19
+# Предположим, что трехзначное число хранится в переменной num
+num = 123
+
+# Отделяем последние три цифры от числа
+last_three_digits = str(num)[-3:]
+
+# Переворачиваем их и преобразуем обратно в число
+reversed_number = int(last_three_digits[::-1])
+
+print(reversed_number)  # Выводим результат
+20
+21
+# Предположим, что трехзначное число хранится в переменной num
+num = 123
+
+# Отделяем последнюю цифру числа
+last_digit = num % 10
+
+# Отделяем две первые цифры
+first_two_digits = num // 10
+
+# Приписываем последнюю цифру в начало
+result = last_digit  *  10 + first_two_digits
+
+print(result)  # Выводим результат
+22
+# Предположим, что трехзначное число хранится в переменной num
+num = 150
+
+# Получаем первую и вторую цифры числа
+first_digit = num // 10 % 10
+second_digit = num % 10
+
+# Получаем третью цифру числа
+third_digit = num // 100
+
+# Переставляем первую и вторую цифры
+swapped_num = third_digit  *  100 + second_digit  *  10 + first_digit
+
+print(swapped_num)  # Выводим результат
+23
+# Предположим, что трехзначное число хранится в переменной num
+num = 170
+
+# Получаем вторую и третью цифры числа
+second_digit = num // 10 % 10
+third_digit = num % 10
+
+# Получаем первую цифру числа
+first_digit = (num // 100)  *  10
+
+# Переставляем вторую и третью цифры
+swapped_num = first_digit  *  100 + second_digit  *  10 + third_digit
+
+print(swapped_num)  # Выводим результат 
+24
+def permutations(num):
+    # Список для хранения всех возможных перестановок
+    results = []
+    
+    # Список с цифрами заданного числа
+    digits = list(str(num))
+    
+    # Перебираем все возможные комбинации цифр
+    for i in range(len(digits)):
+        # Копируем текущий список цифр
+        temp = digits[:]
+        
+        # Меняем местами текущую цифру с каждой последующей
+        for j in range(i + 1, len(temp)):
+            temp[j], temp[i] = temp[i], temp[j]
+        
+        # Преобразуем список цифр обратно в число
+        result = int(''.join(map(str, temp)))
+        results.append(result)
+    
+    return results
+
+# Пример использования функции:
+given_number = 220
+permutations_list = permutations(given_number)
+for permuted_number in permutations_list:
+    print(permuted_number)
+25
+def count_units(n):
+    """Возвращает количество единиц в числе n."""
+    return n % 10
+
+def count_tens(n):
+    """Возвращает количество десятков в числе n."""
+    return (n // 10) % 10
+
+# Пример использования функций:
+n = 123456789
+print("Количество единиц в числе", count_units(n))
+print("Количество десятков в числе", count_tens(n))
+26
+# Шаг 1: предположим, что искомое число x - это 100 + a, где a - двузначное число
+a = input("Введите двузначное число a: ")
+x = 100 + int(a)
+
+# Шаг 2: вычитаем последнюю цифру числа x
+last_digit = x % 10
+x -= last_digit
+
+# Шаг 3: делим результат на 10
+quotient = x / 10
+
+# Шаг 4: приписываем последнюю цифру числа x к частному
+result = quotient  *  10 + last_digit
+
+# Шаг 5: проверяем, равно ли полученное число 237
+if result == 237:
+    print("Искомое число x:", x)
+else:
+    print("Неверный ответ")
+27
+# Вводим число n с клавиатуры
+n = int(input())
+
+# Проверяем, что введенное число находится в диапазоне от 10 до 999 и что число десятков в нем не равно нулю
+if 10 <= n <= 999 and (n // 10) % 10 != 0:
+    # Находим последнюю цифру числа n
+    last_digit = n % 10
+    
+    # Вычисляем число без последней цифры, разделив n на 10 и взяв целую часть
+    x = n // 10
+    
+    # Прибавляем последнюю цифру к числу x
+    x += last_digit
+    
+    # Выводим найденное число x
+    print(x)
+else:
+    print("Число n не удовлетворяет условиям задачи.")
+28
+# Вводим значение n с клавиатуры
+n = int(input())
+
+# Проверяем, что введенное число находится в диапазоне от 100 до 999
+if 100 <= n <= 999:
+    # Находим первую цифру числа n
+    first_digit = n % 10
+    
+    # Вычисляем оставшиеся две цифры числа n
+    other_digits = (n // 10)  *  10
+    
+    # Находим число, полученное после зачеркивания первой цифры
+    x_without_first_digit = other_digits  *  10 + first_digit
+    
+    # Находим первую цифру числа x
+    x_first_digit = (n - x_without_first_digit) / 10
+    
+    # Вычисляем число x
+    x = x_first_digit  *  10 + x_without_first_digit
+    
+    # Выводим найденное число x
+    print(x)
+else:
+    print("Число n вне допустимого диапазона.")
+29
+# Вводим значение n с клавиатуры
+n = int(input())
+
+# Проверяем, что введенное число находится в допустимом диапазоне
+if 10 <= n <= 999 and (n // 10) % 10 != 0:
+    # Находим вторую цифру числа n
+    second_digit = n % 10
+    
+    # Вычисляем первую цифру числа n
+    first_digit = (n // 10)  *  10
+    
+    # Находим число, полученное после зачеркивания второй цифры
+    x_without_second_digit = first_digit + second_digit
+    
+    # Находим первую цифру числа x
+    x_first_digit = (n - x_without_second_digit) // 10
+    
+    # Вычисляем число x
+    x = x_first_digit  *  10 + x_without_second_digit
+    
+    # Выводим найденное число x
+    print(x)
+else:
+    print("Число n не удовлетворяет условиям задачи.")
+30
+def calculate_angle(h, m, s):
+    # Угол в градусах, который часовая стрелка проходит за один час
+    angle_per_hour = 30
+    
+    # Угол в градусах, который часовая стрелка проходит за одну минуту
+    angle_per_minute = angle_per_hour / 60
+    
+    # Угол в градусах, который часовая стрелка проходит за одну секунду
+    angle_per_second = angle_per_minute / 60
+    
+    # Угол в градусах, который часовая стрелка проходит за указанные часы
+    angle_for_hours = angle_per_hour  *  h
+    
+    # Угол в градусах, который часовая стрелка проходит за указанные минуты
+    angle_for_minutes = angle_per_minute  *  m
+    
+    # Угол в градусах, который часовая стрелка проходит за указанные секунды
+    angle_for_seconds = angle_per_second  *  s
+    
+    # Общий угол, на который сместилась часовая стрелка
+    total_angle = angle_for_hours + angle_for_minutes + angle_for_seconds
+    
+    return total_angle
+
+# Пример использования функции:
+h = 12  # Часы
+m = 30  # Минуты
+s = 0   # Секунды
+
+# Вызов функции и вывод результата
+print(calculate_angle(h, m, s))
+31
+def hours_and_minutes(y):
+    # Шаг 1: Получаем долю суток
+    fraction_of_day = y / 360
+    
+    # Шаг 2: Получаем количество полных часов
+    full_hours = int(fraction_of_day  *  24)
+    
+    # Шаг 3: Округляем количество полных часов
+    rounded_full_hours = round(full_hours)
+    
+    # Шаг 4: Вычитаем из y количество градусов, соответствующее полным часам
+    remaining_degrees = y - (rounded_full_hours  *  360)
+    
+    # Шаг 5: Получаем количество полных минут
+    full_minutes = int(remaining_degrees / 360  *  1440)
+    
+    # Шаг 6: Округляем количество полных минут
+    rounded_full_minutes = round(full_minutes)
+    
+    return rounded_full_hours, rounded_full_minutes
+
+# Пример использования функции:
+y = 120  # Пример угла в градусах
+hours, minutes = hours_and_minutes(y)
+print(f"Число полных часов: {hours}, Число полных минут: {minutes}")
+32
+def calculate_hours_and_minutes(y):
+    # Проверяем, что угол y находится в допустимом диапазоне
+    if not (0 < y <= 2):
+        raise ValueError("Угол y должен быть больше 0 и не больше 2.")
+
+    # Количество полных часов
+    full_hours = round(y / 360  *  24)
+
+    # Количество полных минут для часовой стрелки
+    full_minutes_for_hour_hand = round((60 - y) / 360  *  1440)
+
+    return full_hours, full_minutes_for_hour_hand
+
+# Пример использования функции:
+y = 1  # Угол между часовой стрелкой и лучом, проходящим через центр и точку 12 часов
+hours, minutes = calculate_hours_and_minutes(y)
+print(f"Количество полных часов: {hours}, Количество полных минут: {minutes}")
+33
+A = 150
+B = 75
+C = 60
+
+condition_a = A > 100 and B > 100
+condition_b = (A % 2 == 0 and B % 2 != 0) or (A % 2 != 0 and B % 2 == 0)
+condition_c = A > 0 or B > 0
+condition_d = A % 3 == 0 and B % 3 == 0 and C % 3 == 0
+condition_e = (A < 50 and B >= 50 and C >= 50) or (A >= 50 and B < 50 and C >= 50) or (A >= 50 and B >= 50 and C < 50)
+condition_f = A < 0 or B < 0 or C < 0
+
+result = condition_a and condition_b and condition_c and condition_d and condition_e and condition_f
+
+print(result)
+34
+x1 = int(input("Введите номер столбца первой клетки (от 1 до 8): "))
+y1 = int(input("Введите номер строки первой клетки (от 1 до 8): "))
+x2 = int(input("Введите номер столбца второй клетки (от 1 до 8): "))
+y2 = int(input("Введите номер строки второй клетки (от 1 до 8): "))
+
+if (x1 == x2) or (y1 == y2):
+    print("YES")
+else:
+    print("NO")
+
+
+
+
+
