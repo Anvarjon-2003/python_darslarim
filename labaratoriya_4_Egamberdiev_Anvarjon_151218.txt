@@ -1,0 +1,223 @@
+1
+import random
+
+# Создаем пустой список для хранения ростов
+heights = []
+
+# Заполняем список ростами, сгенерированными случайным образом
+for _ in range(12):
+    # Генерируем рост от 163 до 190 см включительно
+    height = random.randint(163, 190)
+    heights.append(height)
+
+# Выводим список ростов
+print(heights)
+2
+def arithmetic_progression(a1, d, n):
+    """Функция для создания первых n членов арифметической прогрессии."""
+    return [a1 + i  *  d for i in range(n)]
+
+# Предположим, что a1 = 5 и d = 3
+first_term = 5
+common_difference = 3
+number_of_terms = 10
+
+# Получаем первые 10 членов арифметической прогрессии
+arithmetic_sequence = arithmetic_progression(first_term, common_difference, number_of_terms)
+
+# Выводим результат
+print(arithmetic_sequence)
+3
+my_list = [1, 2, 3, 4, 5]
+reversed_list = my_list[::-1]
+print(reversed_list)  # Выведет [5, 4, 3, 2, 1]
+4
+# Предположим, что список 'a' уже определен
+a = [1, 2, 3, 4, 5]  # Пример списка
+
+# Функция для вычисления знакопеременной суммы
+def alternating_sum(lst):
+    sum = 0
+    for i in lst:
+        if i % 2 == 0:  # Проверяем четность элемента
+            sum += i  # Добавляем четные элементы к сумме
+        else:
+            sum -= i  # Уменьшаем сумму на значение нечетного элемента
+    return sum
+
+# Вызов функции и вывод результата
+print(alternating_sum(a))
+5
+# Список с численностью учеников в каждом классе
+class_sizes = [25, 28, 22, 30, 27, 29, 26, 31, 24, 23, 28, 26, 27, 29, 25, 30, 28, 26, 29, 27, 25, 28, 22, 30, 27, 29, 26, 31, 24, 23, 28, 26]
+
+# Сумма численностей учеников во всех классах
+total_students = sum(class_sizes)
+
+# Проверка, является ли общее число учеников четырехзначным
+if 1000 <= total_students < 10000:
+    print("Общее число учеников в школе является четырехзначным числом.")
+else:
+    print("Общее число учеников в школе не является четырехзначным числом.")
+6
+# Предположим, что список целых чисел уже сохранен в переменной numbers
+numbers = [12, 45, 78, 0, 23, 102, 50, 99]
+
+# Часть а) Напечатать все четные элементы
+even_elements = [num for num in numbers if num % 2 == 0]
+print("Все четные элементы:", even_elements)
+
+# Часть б) Напечатать все элементы, оканчивающиеся нулем
+ending_with_zero = [num for num in numbers if num % 10 == 0]
+print("Все элементы, оканчивающиеся нулем:", ending_with_zero)
+
+7
+math_scores = [500, 550, 600, 650, 700, 750, 800, 850, 900, 950]
+russian_scores = [450, 500, 550, 600, 650, 700, 750, 800, 850, 900]
+informatics_scores = [400, 450, 500, 550, 600, 650, 700, 750, 800, 850]
+names = ['Иванов', 'Петров', 'Сидоров', 'Алексеев', 'Яковлев', 'Смирнов', 'Кузнецов', 'Николаев', 'Соколов', 'Лебедев']
+math_pass_score = sum(math_scores) / len(math_scores)
+russian_pass_score = sum(russian_scores) / len(russian_scores)
+informatics_pass_score = sum(informatics_scores) / len(informatics_scores)
+admitted_students = []
+for index, math_score in enumerate(math_scores):
+    if math_score >= math_pass_score:
+        if russian_scores[index] >= russian_pass_score and informatics_scores[index] >= informatics_pass_score:
+            admitted_students.append((index, names[index]))
+for index, name in admitted_students:
+    print(f"{index+1} : {name}")
+8
+ordered_list = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+# Определение числа различных элементов в списке
+unique_elements = len(set(ordered_list))
+
+print(f"Число различных элементов в списке: {unique_elements}")
+
+9
+def swap_adjacent_elements(lst):
+    # Итерируемся по списку с шагом 2, чтобы обрабатывать пары соседних элементов
+    for i in range(0, len(lst) - 1, 2):
+        # Меняем местами соседние элементы
+        lst[i], lst[i + 1] = lst[i + 1], lst[i]
+    return lst
+
+# Пример списка
+original_list = [1, 2, 3, 4, 5, 6]
+swapped_list = swap_adjacent_elements(original_list)
+print(swapped_list)  # Выведет список с переставленными соседними элементами
+
+10
+def swap_parts(lst, k1, k2):
+    # Проверяем, что k1 меньше k2 и оба индекса находятся в пределах списка
+    if k1 > k2 or k1 < 0 or k2 >= len(lst):
+        raise ValueError("Index out of range or k1 greater than k2")
+    
+    # Создаем подсписки для левой и правой частей
+    left_part = lst[:k1]
+    right_part = lst[k2:]
+    
+    # Объединяем подсписки, поменяв их местами
+    lst[:k1] = right_part
+    lst[k2:] = left_part
+    
+    return lst
+
+# Пример списка
+lst = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+k1 = 3
+k2 = 6
+result = swap_parts(lst, k1, k2)
+print(result)  # Выведет список с левой и правой частями, поменянными местами
+
+11
+def count_pairs(guests):
+    count = 0
+    prev_name = guests[0]
+    for name in guests[1:]:
+        if name == prev_name:
+            count += 1
+        prev_name = name
+    return count
+
+# Пример списка гостей
+guests = ["Алексей", "Мария", "Алексей", "Анна", "Мария"]
+print(count_pairs(guests))  # Выведет количество пар гостей с одинаковыми именами
+ 
+12
+# Список размеров обуви, который может быть любым
+shoe_sizes = [10, 10, 11, 12, 12, 13, 14, 15]
+
+# Преобразование списка в множество для удаления дубликатов
+unique_sizes = set(shoe_sizes)
+
+# Вывод уникальных размеров
+print(unique_sizes)
+
+13
+# Предположим, что списки студентов групп 17, 18 и 19 уже загружены в память
+# Например, через pandas.DataFrame или list comprehension
+# Здесь я просто создам списки для примера
+students_17 = ['Иванов', 'Петров', 'Сидоров', 'Алексеев']
+students_18 = ['Иванова', 'Кузнецов', 'Яковлев', 'Смирнов']
+students_19 = ['Кузнецова', 'Николаев', 'Соколов', 'Лебедев']
+
+# Объединяем списки студентов всех групп в один список
+all_students = students_17 + students_18 + students_19
+
+# Вычисляем общее количество студентов
+total_students_count = len(all_students)
+
+# Вычисляем самую малочисленную группу
+min_group_size = min(len(students_17), len(students_18), len(students_19))
+
+# Вычисляем самую большую по составу группу
+max_group_size = max(len(students_17), len(students_18), len(students_19))
+
+# Выводим результаты
+print(f"Общее количество студентов: {total_students_count}")
+print(f"Самая малочисленная группа: {min_group_size}")
+print(f"Самая большая по составу группа: {max_group_size}")
+
+# Выводим общий список студентов в алфавитном порядке
+print("Студенты всех групп в алфавитном порядке:")
+all_students.sort()
+print(all_students)
+
+14
+# Список оценок Вася по русскому языку
+grades = [5, 4, 5, 3, 2, 5, 4, 3, 5, 5, 4, 2, 2, 3]
+
+# Средний балл - сумма всех оценок, деленная на количество оценок
+average_grade = sum(grades) / len(grades)
+
+# Вывод среднего балла
+print(f"Средний балл ученика: {average_grade}")
+
+# Вывод оценок в формате «5; 4; 5; 3; 2; 5; 4; 3; 5; 5; 4; 2; 2; 3»
+print("Оценки ученика в формате «5; 4; 5; 3; 2; 5; 4; 3; 5; 5; 4; 2; 2; 3»:")
+print(";".join(map(str, grades)))
+
+15
+numbers = [num for num in range(1, 10001) if (num % 7 == 0 and num % 3 == 0) or num % 9 == 0]
+
+print(f"Список чисел, делящихся на 7 и 3 или делящихся на 9, в диапазоне от 1 до 10000: {numbers}")
+ 16
+# Создаем список от 11 до пп
+numbers = [str(i).zfill(2) 
+           for i in range(11, 100,11)]
+
+# Выводим результат
+print(numbers)
+17
+original_list = [[1, 10], [2, 20], [3, 30], [4, 40]]
+new_list = [item for sublist in original_list for item in sublist]
+
+print(f"Исходный список: {original_list}")
+print(f"Новый список: {new_list}")
+
+18
+numbers = list(range(1, 21))
+result = [num + 2 if num % 2 != 0 else num ** 2 for num in numbers]
+
+print(result)
